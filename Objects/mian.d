@@ -30,3 +30,5 @@
 .\objects\mian.o: .\Library\misc.h
 .\objects\mian.o: User\pivot.h
 .\objects\mian.o: .\Hardware\LED\LED.h
+.\objects\mian.o: .\Hardware\OLED\OLED.h
+.\objects\mian.o: .\Hardware\OLED\OLED_Font.h
