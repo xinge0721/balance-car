@@ -1,4 +1,4 @@
-.\objects\mian.o: mian.cpp
+.\objects\mian.o: User\mian.cpp
 .\objects\mian.o: .\Start\stm32f10x.h
 .\objects\mian.o: .\Start\core_cm3.h
 .\objects\mian.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -28,4 +28,5 @@
 .\objects\mian.o: .\Library\stm32f10x_usart.h
 .\objects\mian.o: .\Library\stm32f10x_wwdg.h
 .\objects\mian.o: .\Library\misc.h
-.\objects\mian.o: .\Hardware\LED.h
+.\objects\mian.o: User\pivot.h
+.\objects\mian.o: .\Hardware\LED\LED.h

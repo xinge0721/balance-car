@@ -1,9 +1,10 @@
 #include "stm32f10x.h"                  // Device header
+#include "pivot.h"
 
-#include "LED.h"
 
 int main()
 {
-	LED_Init();
+	Hardware_Init();
+	
 	while(1);
 }

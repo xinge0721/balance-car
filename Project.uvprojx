@@ -52,7 +52,7 @@
           <OutputName>Project</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -655,14 +655,9 @@
           <GroupName>System</GroupName>
           <Files>
             <File>
-              <FileName>Delay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\System\Delay.c</FilePath>
-            </File>
-            <File>
-              <FileName>Delay.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\Delay.h</FilePath>
+              <FileName>Delay.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\System\Delay\Delay.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -670,39 +665,19 @@
           <GroupName>Hardware</GroupName>
           <Files>
             <File>
-              <FileName>LED.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\LED.h</FilePath>
-            </File>
-            <File>
-              <FileName>Key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\Key.c</FilePath>
-            </File>
-            <File>
-              <FileName>Key.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\Key.h</FilePath>
-            </File>
-            <File>
-              <FileName>OLED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\OLED.c</FilePath>
-            </File>
-            <File>
-              <FileName>OLED.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\OLED.h</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\OLED_Font.h</FilePath>
+              <FileName>Key.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Hardware\Key\Key.cpp</FilePath>
             </File>
             <File>
               <FileName>LED.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\LED.cpp</FilePath>
+              <FilePath>.\Hardware\LED\LED.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OLED.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Hardware\OLED\OLED.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -727,7 +702,17 @@
             <File>
               <FileName>mian.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\mian.cpp</FilePath>
+              <FilePath>.\User\mian.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>pivot.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\pivot.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>pivot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\pivot.h</FilePath>
             </File>
           </Files>
         </Group>
