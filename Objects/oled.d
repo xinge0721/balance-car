@@ -29,4 +29,11 @@
 .\objects\oled.o: .\Library\stm32f10x_usart.h
 .\objects\oled.o: .\Library\stm32f10x_wwdg.h
 .\objects\oled.o: .\Library\misc.h
-.\objects\oled.o: Hardware\OLED\OLED_Font.h
+.\objects\oled.o: .\User\pivot.h
+.\objects\oled.o: .\System\sys\sys.h
+.\objects\oled.o: .\System\Delay\delay.h
+.\objects\oled.o: .\Hardware\LED\LED.h
+.\objects\oled.o: .\Hardware\OLED\OLED.h
+.\objects\oled.o: .\Hardware\OLED\OLED_Font.h
+.\objects\oled.o: .\Hardware\PWM\PWM.h
+.\objects\oled.o: .\User\pivot.h

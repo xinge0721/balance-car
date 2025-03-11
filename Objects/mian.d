@@ -29,6 +29,10 @@
 .\objects\mian.o: .\Library\stm32f10x_wwdg.h
 .\objects\mian.o: .\Library\misc.h
 .\objects\mian.o: User\pivot.h
+.\objects\mian.o: .\System\sys\sys.h
+.\objects\mian.o: .\System\Delay\delay.h
 .\objects\mian.o: .\Hardware\LED\LED.h
 .\objects\mian.o: .\Hardware\OLED\OLED.h
+.\objects\mian.o: .\User\pivot.h
 .\objects\mian.o: .\Hardware\OLED\OLED_Font.h
+.\objects\mian.o: .\Hardware\PWM\PWM.h

@@ -1,7 +1,6 @@
 .\objects\pivot.o: User\pivot.cpp
 .\objects\pivot.o: User\pivot.h
-.\objects\pivot.o: .\Hardware\LED\LED.h
-.\objects\pivot.o: .\Hardware\OLED\OLED.h
+.\objects\pivot.o: .\System\sys\sys.h
 .\objects\pivot.o: .\Start\stm32f10x.h
 .\objects\pivot.o: .\Start\core_cm3.h
 .\objects\pivot.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -31,4 +30,9 @@
 .\objects\pivot.o: .\Library\stm32f10x_usart.h
 .\objects\pivot.o: .\Library\stm32f10x_wwdg.h
 .\objects\pivot.o: .\Library\misc.h
+.\objects\pivot.o: .\System\Delay\delay.h
+.\objects\pivot.o: .\Hardware\LED\LED.h
+.\objects\pivot.o: .\Hardware\OLED\OLED.h
+.\objects\pivot.o: .\User\pivot.h
 .\objects\pivot.o: .\Hardware\OLED\OLED_Font.h
+.\objects\pivot.o: .\Hardware\PWM\PWM.h

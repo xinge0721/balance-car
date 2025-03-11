@@ -1,8 +1,18 @@
 #ifndef OLED_H
 #define OLED_H
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 #include "stm32f10x.h"
-#include "OLED_Font.h"
+#ifdef __cplusplus
+}
+#endif
+
+#include "stm32f10x.h"
+#include "pivot.h"
+
 class OLED {
 private:
     // 私有成员变量
@@ -32,10 +42,10 @@ public:
 		void ShowBinNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length);
 
 		// 修正后的SCL/SDA控制函数
-		void OLED_W_SDA(uint8_t x) {
+		inline void OLED_W_SDA(uint8_t x) {
 				GPIO_WriteBit(SDA_GPIOx, sdaPin, (BitAction)x);
 		}
-		void OLED_W_SCL(uint8_t x) {
+		inline void OLED_W_SCL(uint8_t x) {
 				GPIO_WriteBit(SCL_GPIOx, sclPin, (BitAction)x);
 		}
 };

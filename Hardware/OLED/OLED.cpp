@@ -3,32 +3,18 @@
 //#define this->W_SCL(GPIOx, pin,x) GPIO_WriteBit(GPIOx, pin, x)
 //#define this->W_SDA(GPIOx, pin,x) GPIO_WriteBit(GPIOx, pin, x)
 
-
 OLED::OLED(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA_GPIOx, uint16_t _sdaPin) 
     : SCL_GPIOx(_SCL_GPIOx), 
 			SDA_GPIOx(_SDA_GPIOx), 
 			sclPin(_sclPin), 	
 			sdaPin(_sdaPin) 
 {
-					this->SCL_GPIOx = _SCL_GPIOx;
-					this->SDA_GPIOx = _SDA_GPIOx;
-					this->sclPin = _sclPin;
-					this->sdaPin = _sdaPin;
-					uint32_t i, j;
-			
-					for (i = 0; i < 1000; i++)			//上电延时
-					{
-						for (j = 0; j < 1000; j++);
-					}
-			
+					
+					Delay_ms(500);
 				// 计算时钟使能位
-				uint32_t sclPortOffset = ((uint32_t)SCL_GPIOx - GPIOA_BASE) / 0x400;
-				uint32_t sclGpioPeriph = 1 << (sclPortOffset + 2);
-				RCC_APB2PeriphClockCmd(sclGpioPeriph, ENABLE);
+				RCC_APB2PeriphClockCmd(GetGpioClock(SCL_GPIOx), ENABLE);
 
-				uint32_t sdaPortOffset = ((uint32_t)SDA_GPIOx - GPIOA_BASE) / 0x400;
-				uint32_t sdaGpioPeriph = 1 << (sdaPortOffset + 2);
-				RCC_APB2PeriphClockCmd(sdaGpioPeriph, ENABLE);
+				RCC_APB2PeriphClockCmd(GetGpioClock(SDA_GPIOx), ENABLE);
 
         // 配置 SCL
         GPIO_InitTypeDef GPIO_InitStruct;
@@ -53,7 +39,7 @@ OLED::OLED(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA_GPIOx,
 
     }
 				
-
+		
 					
 		/**
 			* @brief  I2C开始
@@ -63,8 +49,27 @@ OLED::OLED(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA_GPIOx,
 		void OLED::I2C_Start(void)
 		{
 			OLED_W_SDA(1);
-			OLED_W_SCL(1);
-			OLED_W_SDA(0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OLED_W_SDA(0);
 			OLED_W_SCL(0);
 		}
 

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay;.\System\sys;.\Hardware\PWM</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -659,6 +659,21 @@
               <FileType>8</FileType>
               <FilePath>.\System\Delay\Delay.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\Delay\Delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>sys.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\sys\sys.h</FilePath>
+            </File>
+            <File>
+              <FileName>sys.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\System\sys\sys.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -678,6 +693,11 @@
               <FileName>OLED.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Hardware\OLED\OLED.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Hardware\PWM\PWM.cpp</FilePath>
             </File>
           </Files>
         </Group>
