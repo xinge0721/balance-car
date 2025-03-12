@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay;.\System\sys;.\Hardware\PWM;.\Hardware\control</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay;.\System\sys;.\Hardware\PWM;.\Hardware\control;.\System\IO_Core</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -673,6 +673,16 @@
               <FileName>sys.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\System\sys\sys.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IO_Core.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\System\IO_Core\IO_Core.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IO_Core.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\IO_Core\IO_Core.h</FilePath>
             </File>
           </Files>
         </Group>

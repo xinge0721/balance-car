@@ -13,6 +13,8 @@
 #include "stm32f10x.h"
 #include "pivot.h"
 #include "OLED_Font.h"
+#include "IO_Core.h" 
+
 class OLED {
 
 public:
@@ -40,12 +42,8 @@ public:
 		
 		private:
     // 私有成员变量
-//		GPIO_TypeDef* SCL_GPIOx;
-//		GPIO_TypeDef* SDA_GPIOx;
-//		uint16_t sclPin;
-//		uint16_t sdaPin;
-		IO_Core SCL;
-		IO_Core SDA;
+		GPIO SCL;
+		GPIO SDA;
 
 		
 		void WriteData(uint8_t Data);

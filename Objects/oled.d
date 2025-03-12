@@ -37,4 +37,6 @@
 .\objects\oled.o: .\User\pivot.h
 .\objects\oled.o: .\Hardware\OLED\OLED.h
 .\objects\oled.o: .\Hardware\control\control.h
+.\objects\oled.o: .\System\IO_Core\IO_Core.h
+.\objects\oled.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\oled.o: Hardware\OLED\OLED_Font.h

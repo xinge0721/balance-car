@@ -31,3 +31,5 @@
 .\objects\control.o: .\Library\stm32f10x_wwdg.h
 .\objects\control.o: .\Library\misc.h
 .\objects\control.o: .\System\Delay\delay.h
+.\objects\control.o: .\System\IO_Core\IO_Core.h
+.\objects\control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

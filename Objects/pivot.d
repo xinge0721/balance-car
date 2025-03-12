@@ -36,4 +36,6 @@
 .\objects\pivot.o: .\User\pivot.h
 .\objects\pivot.o: .\Hardware\OLED\OLED.h
 .\objects\pivot.o: .\Hardware\OLED\OLED_Font.h
+.\objects\pivot.o: .\System\IO_Core\IO_Core.h
+.\objects\pivot.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\pivot.o: .\Hardware\control\control.h

@@ -36,4 +36,6 @@
 .\objects\mian.o: .\User\pivot.h
 .\objects\mian.o: .\Hardware\OLED\OLED.h
 .\objects\mian.o: .\Hardware\OLED\OLED_Font.h
+.\objects\mian.o: .\System\IO_Core\IO_Core.h
+.\objects\mian.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\mian.o: .\Hardware\control\control.h
