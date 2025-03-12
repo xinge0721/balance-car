@@ -96,7 +96,18 @@ void INTX_DISABLE(void);//关闭所有中断
 void INTX_ENABLE(void);	//开启所有中断
 void MSR_MSP(u32 addr);	//设置堆栈地址
 
+class IO_Core {
 
+public:
+    GPIO_TypeDef* GPIOx;
+    uint16_t Pin;
+		IO_Core(GPIO_TypeDef* _GPIOx, uint16_t _Pin,GPIOMode_TypeDef mode);
+
+    // 通用IO操作
+    void Write(bool state);
+
+    bool Read(void);
+};
 #endif
 
 

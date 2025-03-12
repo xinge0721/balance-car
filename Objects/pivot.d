@@ -32,7 +32,8 @@
 .\objects\pivot.o: .\Library\misc.h
 .\objects\pivot.o: .\System\Delay\delay.h
 .\objects\pivot.o: .\Hardware\LED\LED.h
-.\objects\pivot.o: .\Hardware\OLED\OLED.h
-.\objects\pivot.o: .\User\pivot.h
-.\objects\pivot.o: .\Hardware\OLED\OLED_Font.h
 .\objects\pivot.o: .\Hardware\PWM\PWM.h
+.\objects\pivot.o: .\User\pivot.h
+.\objects\pivot.o: .\Hardware\OLED\OLED.h
+.\objects\pivot.o: .\Hardware\OLED\OLED_Font.h
+.\objects\pivot.o: .\Hardware\control\control.h

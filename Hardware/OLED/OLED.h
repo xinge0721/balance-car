@@ -2,35 +2,22 @@
 #define OLED_H
 
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-#include "stm32f10x.h"
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
+//#include "stm32f10x.h"
+//#ifdef __cplusplus
+//}
+//#endif
 
 #include "stm32f10x.h"
 #include "pivot.h"
-
+#include "OLED_Font.h"
 class OLED {
-private:
-    // 私有成员变量
-		GPIO_TypeDef* SCL_GPIOx;
-		GPIO_TypeDef* SDA_GPIOx;
-		uint16_t sclPin;
-		uint16_t sdaPin;
-		void WriteData(uint8_t Data);
-		void WriteCommand(uint8_t Command);
-		void I2C_SendByte(uint8_t Byte);
-		void I2C_Stop(void);
-		void I2C_Start(void);
-		void SetCursor(uint8_t Y, uint8_t X);
-		uint32_t Pow(uint32_t X, uint32_t Y);
-
 
 public:
-    OLED(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA_GPIOx, uint16_t _sdaPin);
+    OLED(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, 
+				 GPIO_TypeDef* _SDA_GPIOx, uint16_t _sdaPin);
 		void Init(void);
 		void Clear(void);
 
@@ -43,11 +30,33 @@ public:
 
 		// 修正后的SCL/SDA控制函数
 		inline void OLED_W_SDA(uint8_t x) {
-				GPIO_WriteBit(SDA_GPIOx, sdaPin, (BitAction)x);
+//				GPIO_WriteBit(SDA_GPIOx, sdaPin, (BitAction)x);
+				SDA.Write(x);
 		}
 		inline void OLED_W_SCL(uint8_t x) {
-				GPIO_WriteBit(SCL_GPIOx, sclPin, (BitAction)x);
+//				GPIO_WriteBit(SCL_GPIOx, sclPin, (BitAction)x);
+				SCL.Write(x);
 		}
+		
+		private:
+    // 私有成员变量
+//		GPIO_TypeDef* SCL_GPIOx;
+//		GPIO_TypeDef* SDA_GPIOx;
+//		uint16_t sclPin;
+//		uint16_t sdaPin;
+		IO_Core SCL;
+		IO_Core SDA;
+
+		
+		void WriteData(uint8_t Data);
+		void WriteCommand(uint8_t Command);
+		void I2C_SendByte(uint8_t Byte);
+		void I2C_Stop(void);
+		void I2C_Start(void);
+		void SetCursor(uint8_t Y, uint8_t X);
+		uint32_t Pow(uint32_t X, uint32_t Y);
+
+
 };
 
 

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay;.\System\sys;.\Hardware\PWM</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay;.\System\sys;.\Hardware\PWM;.\Hardware\control</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -698,6 +698,11 @@
               <FileName>PWM.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Hardware\PWM\PWM.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>control.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Hardware\control\control.cpp</FilePath>
             </File>
           </Files>
         </Group>

@@ -33,7 +33,8 @@
 .\objects\pwm.o: .\Library\misc.h
 .\objects\pwm.o: .\System\Delay\delay.h
 .\objects\pwm.o: .\Hardware\LED\LED.h
+.\objects\pwm.o: .\Hardware\PWM\PWM.h
 .\objects\pwm.o: .\Hardware\OLED\OLED.h
 .\objects\pwm.o: .\User\pivot.h
 .\objects\pwm.o: .\Hardware\OLED\OLED_Font.h
-.\objects\pwm.o: .\Hardware\PWM\PWM.h
+.\objects\pwm.o: .\Hardware\control\control.h

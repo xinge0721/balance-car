@@ -4,43 +4,19 @@
 //#define this->W_SDA(GPIOx, pin,x) GPIO_WriteBit(GPIOx, pin, x)
 
 OLED::OLED(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA_GPIOx, uint16_t _sdaPin) 
-    : SCL_GPIOx(_SCL_GPIOx), 
-			SDA_GPIOx(_SDA_GPIOx), 
-			sclPin(_sclPin), 	
-			sdaPin(_sdaPin) 
+			:SCL(_SCL_GPIOx,_sclPin,GPIO_Mode_Out_OD),
+		  SDA(_SDA_GPIOx,_sdaPin,GPIO_Mode_Out_OD)
 {
-					
-					Delay_ms(500);
-				// 计算时钟使能位
-				RCC_APB2PeriphClockCmd(GetGpioClock(SCL_GPIOx), ENABLE);
-
-				RCC_APB2PeriphClockCmd(GetGpioClock(SDA_GPIOx), ENABLE);
-
-        // 配置 SCL
-        GPIO_InitTypeDef GPIO_InitStruct;
-        GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_OD;
-        GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
-					
-        GPIO_InitStruct.GPIO_Pin = _sclPin;
-        GPIO_Init(_SCL_GPIOx, &GPIO_InitStruct);
-
-        // 配置 SDA
-        GPIO_InitStruct.GPIO_Pin = _sdaPin;
-        GPIO_Init(_SDA_GPIOx, &GPIO_InitStruct);
-
         // 初始化为高电平
         OLED_W_SCL(1);
         OLED_W_SDA(1);
 				
-//				Delay_ms(500); 
+				Delay_ms(500);
 
 				this->Init();
 				
 
     }
-				
-		
-					
 		/**
 			* @brief  I2C开始
 			* @param  无
@@ -49,27 +25,7 @@ OLED::OLED(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA_GPIOx,
 		void OLED::I2C_Start(void)
 		{
 			OLED_W_SDA(1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-OLED_W_SDA(0);
+			OLED_W_SDA(0);
 			OLED_W_SCL(0);
 		}
 
