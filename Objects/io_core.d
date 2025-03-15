@@ -30,6 +30,7 @@
 .\objects\io_core.o: .\Library\stm32f10x_wwdg.h
 .\objects\io_core.o: .\Library\misc.h
 .\objects\io_core.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\io_core.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 .\objects\io_core.o: .\Hardware\PWM\PWM.h
 .\objects\io_core.o: .\User\pivot.h
 .\objects\io_core.o: .\System\sys\sys.h
