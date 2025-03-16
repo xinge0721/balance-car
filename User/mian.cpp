@@ -14,6 +14,9 @@ encoder End_left(GPIOA, GPIO_Pin_0,
 encoder End_right(GPIOA, GPIO_Pin_6,
 									GPIOA, GPIO_Pin_7,
 									65535, 0);
+MPU6050 MPU(GPIOB, GPIO_Pin_3, GPIOB, GPIO_Pin_4);
+
+
 int main()
 {
 	Hardware_Init();
@@ -28,6 +31,7 @@ int main()
 		Controlleft.pwm.setOc1(3600); // 50%Õ¼¿Õ±È
 		Controlleft.pwm.setOc4(3600);
 		i += End_left.Right();
+		i += End_right.Right();
 		oled.ShowNum(3,3,i,3);
 	}
 }

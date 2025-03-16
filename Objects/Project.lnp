@@ -32,6 +32,7 @@
 ".\objects\led.o"
 ".\objects\oled.o"
 ".\objects\control.o"
+".\objects\mpu6050.o"
 ".\objects\stm32f10x_it.o"
 ".\objects\mian.o"
 ".\objects\pivot.o"

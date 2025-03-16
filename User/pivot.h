@@ -6,6 +6,8 @@
 #include "PWM.h"
 #include "OLED.h"
 #include "control.h"
+#include "MPU6050.h"
+
 void Hardware_Init();
 uint32_t GetGpioClock(GPIO_TypeDef* GPIOx);
 

@@ -41,3 +41,4 @@
 .\objects\io_core.o: .\User\pivot.h
 .\objects\io_core.o: .\Hardware\OLED\OLED_Font.h
 .\objects\io_core.o: .\Hardware\control\control.h
+.\objects\io_core.o: .\Hardware\MPU6050\MPU6050.h
