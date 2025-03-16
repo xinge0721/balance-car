@@ -4,12 +4,11 @@
 #include "Delay.h"
 #include "LED.h"
 #include "PWM.h"
-
+#include "OLED.h"
+#include "control.h"
 void Hardware_Init();
 uint32_t GetGpioClock(GPIO_TypeDef* GPIOx);
 
 
-#include "OLED.h"
-#include "control.h"
 
 #endif

@@ -31,7 +31,6 @@
 ".\objects\key.o"
 ".\objects\led.o"
 ".\objects\oled.o"
-".\objects\pwm.o"
 ".\objects\control.o"
 ".\objects\stm32f10x_it.o"
 ".\objects\mian.o"

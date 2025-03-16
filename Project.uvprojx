@@ -705,11 +705,6 @@
               <FilePath>.\Hardware\OLED\OLED.cpp</FilePath>
             </File>
             <File>
-              <FileName>PWM.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Hardware\PWM\PWM.cpp</FilePath>
-            </File>
-            <File>
               <FileName>control.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Hardware\control\control.cpp</FilePath>

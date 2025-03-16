@@ -29,19 +29,34 @@ extern const TIM_GPIO_Mapping timMap[];
 class PWM
 {
 private:
- GPIO OC2;
- GPIO OC3;
-TIM_TypeDef* pwm_tim;
+	GPIO Oc1;
+	GPIO Oc4;
+	TIM_TypeDef* pwm_tim;
 
 
 public:
-	PWM(GPIO_TypeDef* _OC2, u16 _OC2Pin,
-			GPIO_TypeDef* _OC3, u16 _OC3Pin,
+	PWM(GPIO_TypeDef* _Oc1, u16 _Oc1Pin,
+			GPIO_TypeDef* _Oc4, u16 _Oc4Pin,
 			u16 arr,u16 psc);
-	void oc2(u16 value = 0);
-	void oc3(u16 value = 0);
+	void setOc1(u16 value = 0);
+	void setOc4(u16 value = 0);
+
 };
 
+
+class encoder
+{
+	private:
+	GPIO EN1;
+	GPIO EN2;
+	TIM_TypeDef* timx;
+	public:
+	encoder(GPIO_TypeDef* _EN1, u16 _EN1Pin,
+			GPIO_TypeDef* _EN2, u16 _EN2Pin,
+			u16 arr,u16 psc);
+	int16_t Right(void);
+
+};
 
 #endif
 

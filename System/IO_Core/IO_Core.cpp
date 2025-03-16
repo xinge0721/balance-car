@@ -1,7 +1,7 @@
 #include "IO_Core.h" 
 #include "assert.h"
 
-// PWM引脚与定时器的映射表（根据STM32F103C8T6手册配置）
+// 引脚与定时器的映射表（根据STM32F103C8T6手册配置）
 const TIM_GPIO_Mapping timMap[] = {
     // TIM1（APB2）
     {GPIOA, GPIO_Pin_8,  TIM1}, // TIM1_CH1
@@ -91,30 +91,29 @@ return GPIO_ReadInputDataBit(GPIOx, Pin);
 	
 #include "PWM.h"
 
-PWM::PWM(GPIO_TypeDef* _OC2, u16 _OC2Pin,
-					GPIO_TypeDef* _OC3, u16 _OC3Pin,
-					
+PWM::PWM(GPIO_TypeDef* _Oc1, u16 _Oc1Pin,
+					GPIO_TypeDef* _Oc4, u16 _Oc4Pin,
 					u16 arr,u16 psc)
-					:OC2(_OC2,_OC2Pin,GPIO_Mode_AF_PP),
-					OC3(_OC3,_OC3Pin,GPIO_Mode_AF_PP)
+					:Oc1(_Oc1,_Oc1Pin,GPIO_Mode_AF_PP),
+					Oc4(_Oc4,_Oc4Pin,GPIO_Mode_AF_PP)
 {
 		
-		TIM_TypeDef* OC2_tim = GetTimerFromGPIO(_OC2, _OC2Pin);
-		TIM_TypeDef* OC3_tim = GetTimerFromGPIO(_OC3, _OC3Pin);
+		TIM_TypeDef* OC1_tim = GetTimerFromGPIO(_Oc1, _Oc1Pin);
+		TIM_TypeDef* Oc4_tim = GetTimerFromGPIO(_Oc4, _Oc4Pin);
 
 		// 检查引脚是否映射到有效的定时器
-		if (OC2_tim == NULL || OC3_tim == NULL) {
+		if (OC1_tim == NULL || Oc4_tim == NULL) {
 				assert(0 && "Invalid PWM pin mapping!"); // 明确错误原因
 				return;
 		}
 
 		// 检查是否使用同一定时器
-		if (OC2_tim != OC3_tim) {
-				assert(0 && "OC2 and OC3 must use the same timer!");
+		if (OC1_tim != Oc4_tim) {
+				assert(0 && "Oc1 and Oc4 must use the same timer!");
 				return;
 		}
 
-		this->pwm_tim = OC2_tim; // 直接使用OC2_tim（已确保OC2_tim == OC3_tim）
+		this->pwm_tim = OC1_tim; // 直接使用Oc1_tim（已确保Oc1_tim == Oc4_tim）
 
 		// 根据定时器类型使能时钟
 		if (pwm_tim == TIM1) {
@@ -139,13 +138,12 @@ PWM::PWM(GPIO_TypeDef* _OC2, u16 _OC2Pin,
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; // 输出极性高
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; // 比较输出使能
     TIM_OCInitStructure.TIM_Pulse = 0; // 初始占空比设置为0
+
+		TIM_OC1Init(pwm_tim, &TIM_OCInitStructure);  // GPIOA_Pin8 -> TIM1_CH1
+		TIM_OC4Init(pwm_tim, &TIM_OCInitStructure);  // GPIOA_Pin11 -> TIM1_CH4
 		
-		TIM_OC2Init(pwm_tim, &TIM_OCInitStructure); // 初始化通道2的输出比较参数
-    TIM_OC3Init(pwm_tim, &TIM_OCInitStructure); // 初始化通道3的输出比较参数
-		
-		
-    TIM_OC2PreloadConfig(pwm_tim, TIM_OCPreload_Enable); // 使能通道2的输出比较预装载寄存器
-    TIM_OC3PreloadConfig(pwm_tim, TIM_OCPreload_Enable); // 使能通道3的输出比较预装载寄存器
+    TIM_OC1PreloadConfig(pwm_tim, TIM_OCPreload_Enable); // 使能通道2的输出比较预装载寄存器
+    TIM_OC4PreloadConfig(pwm_tim, TIM_OCPreload_Enable); // 使能通道3的输出比较预装载寄存器
 
     // 使能TIM5
     TIM_Cmd(pwm_tim, ENABLE);
@@ -153,16 +151,85 @@ PWM::PWM(GPIO_TypeDef* _OC2, u16 _OC2Pin,
     TIM_CtrlPWMOutputs(TIM1, ENABLE);
 }	
 
-void PWM::oc2(u16 value) 
+void PWM::setOc1(u16 value) 
 {
-		 TIM_SetCompare2(pwm_tim, value);
+		 TIM_SetCompare1(pwm_tim, value);
 }
 
-void PWM::oc3(u16 value) 
+void PWM::setOc4(u16 value) 
 {
-		 TIM_SetCompare3(pwm_tim, value);
+		 TIM_SetCompare4(pwm_tim, value);
 }
 
+encoder::encoder(GPIO_TypeDef* _EN1, u16 _EN1Pin,
+                GPIO_TypeDef* _EN2, u16 _EN2Pin,
+                u16 arr, u16 psc)
+    : EN1(_EN1, _EN1Pin, GPIO_Mode_IPU),  // 内部上拉
+      EN2(_EN2, _EN2Pin, GPIO_Mode_IPU) 
+{
+    TIM_TypeDef* EN1_tim = GetTimerFromGPIO(_EN1, _EN1Pin);
+    TIM_TypeDef* EN2_tim = GetTimerFromGPIO(_EN2, _EN2Pin);
 
+    // 检查引脚是否映射到有效的定时器
+    if (EN1_tim == NULL || EN2_tim == NULL) {
+        assert(0 && "Invalid encoder pin mapping!");
+        return;
+    }
+
+    // 检查是否使用同一定时器
+    if (EN1_tim != EN2_tim) {
+        assert(0 && "EN1 and EN2 must use the same timer!");
+        return;
+    }
+
+    this->timx = EN1_tim;
+
+    // 使能定时器时钟
+    if (timx == TIM1) {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
+    } else {
+        RCC_APB1PeriphClockCmd(GetTIMClock(timx), ENABLE);
+    }
+
+    // 定时器时基初始化（编码器模式自动管理计数方向）
+    TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
+    TIM_TimeBaseStructInit(&TIM_TimeBaseInitStructure);
+    TIM_TimeBaseInitStructure.TIM_Period = arr;        // 自动重装值
+    TIM_TimeBaseInitStructure.TIM_Prescaler = psc;     // 预分频器
+    TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
+    TIM_TimeBaseInit(timx, &TIM_TimeBaseInitStructure);
+
+    // 编码器接口配置（双边沿触发，4倍频）
+    TIM_EncoderInterfaceConfig(
+        timx,
+        TIM_EncoderMode_TI12,
+        TIM_ICPolarity_BothEdge,   // CH1 双边沿
+        TIM_ICPolarity_BothEdge    // CH2 双边沿
+    );
+
+    // 输入捕获滤波器配置（适度滤波）
+    TIM_ICInitTypeDef TIM_ICInitStructure;
+    TIM_ICStructInit(&TIM_ICInitStructure);
+    TIM_ICInitStructure.TIM_ICFilter = 0x6; // 调整滤波强度
+
+    // 配置通道1
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;
+    TIM_ICInit(timx, &TIM_ICInitStructure);
+
+    // 配置通道2
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;
+    TIM_ICInit(timx, &TIM_ICInitStructure);
+
+    // 启动定时器
+    TIM_Cmd(timx, ENABLE);
+}
+
+int16_t encoder::Right(void) {
+		int16_t Temp;
+		Temp = TIM_GetCounter(timx);
+		TIM_SetCounter(timx, 0);
+		return Temp;
+}
 
 
