@@ -29,10 +29,24 @@ Project File Date:  03/16/2025
 Build target 'Target 1'
 Note: source file '.\System\sys\sys.cpp' - object file renamed from '.\Objects\sys.o' to '.\Objects\sys_1.o'.
 compiling mian.cpp...
-linking...
-Program Size: Code=6092 RO-data=1968 RW-data=0 ZI-data=1768  
-FromELF: creating hex file...
-".\Objects\Project.axf" - 0 Error(s), 0 Warning(s).
+User\mian.cpp(20): error:  #109: expression preceding parentheses of apparent call must have (pointer-to-) function type
+  						GPIOB, GPIO_Pin_4
+User\mian.cpp(21): error:  #20: identifier "GPIO_Pin_B" is undefined
+  						
+PIOB, GPIO_Pin_B);//PB5
+User\mian.cpp(19): error:  #289: no instance of constructor "MPU6050::MPU6050"  matches the argument list
+            argument types are: (GPIO_TypeDef *, u16, GPIO_TypeDef *, <error-type>, <error-type>)
+  MPU6050 MPU(GPIOB, GPIO_Pin_3,
+User\mian.cpp: 0 warnings, 3 errors
+compiling MPU6050.cpp...
+Hardware\MPU6050\MPU6050.cpp(213): error:  #292: "GPIO" is not a nonstatic data member or base class of class "MPU6050"
+  									GPIO(_IN_GPIOx,_INPin)
+Hardware\MPU6050\MPU6050.cpp(213): error:  #18: expected a ")"
+  									GPIO(_IN_GPIOx,_INPin)
+Hardware\MPU6050\MPU6050.cpp(215): error:  #291: no default constructor exists for class "GPIO"
+  {
+Hardware\MPU6050\MPU6050.cpp: 0 warnings, 3 errors
+".\Objects\Project.axf" - 6 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -45,7 +59,8 @@ Package Vendor: Keil
   D:/Users/j/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.2.0/Device/Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Target not created.
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

@@ -9,8 +9,26 @@ MPU6050::I2C::I2C(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA
 						:SCL(_SCL_GPIOx,_sclPin,GPIO_Mode_Out_OD),
 						SDA(_SDA_GPIOx,_sdaPin,GPIO_Mode_Out_OD)
 {
-				SCL.Write(1);
-				SDA.Write(1);
+			SCL.Write(1);
+			SDA.Write(1);
+	
+			EXTI_InitTypeDef EXTI_InitStruct;
+			GPIO_InitTypeDef GPIO_InitStruct;
+			
+			RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO,ENABLE);//开启时钟
+			
+			GPIO_InitStruct.GPIO_Mode=GPIO_Mode_IPU;/**【1】**///GPIO_Mode_AF_PP
+			GPIO_InitStruct.GPIO_Pin=GPIO_Pin_5;//PB5配置为上拉输入
+			GPIO_InitStruct.GPIO_Speed=GPIO_Speed_50MHz;
+			GPIO_Init(GPIOB,&GPIO_InitStruct);	
+			
+			GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource5);//
+			
+			EXTI_InitStruct.EXTI_Line=EXTI_Line5;
+			EXTI_InitStruct.EXTI_LineCmd=ENABLE;
+			EXTI_InitStruct.EXTI_Mode=EXTI_Mode_Interrupt;
+			EXTI_InitStruct.EXTI_Trigger=EXTI_Trigger_Falling;
+			EXTI_Init(&EXTI_InitStruct);
 }
 /*引脚配置层*/
 
@@ -188,8 +206,12 @@ uint8_t MPU6050::ReadReg(uint8_t RegAddress)
   * 参    数：无
   * 返 回 值：无
   */
-MPU6050::MPU6050(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, GPIO_TypeDef* _SDA_GPIOx, uint16_t _sdaPin)
-								:IIC(_SCL_GPIOx, _sclPin, _SDA_GPIOx, _sdaPin)
+MPU6050::MPU6050(GPIO_TypeDef* _SCL_GPIOx, uint16_t _sclPin, 
+								GPIO_TypeDef* _SDA_GPIOx, uint16_t _sdaPin,
+								GPIO_TypeDef* _IN_GPIOx, uint16_t _INPin)
+								:IIC(_SCL_GPIOx, _sclPin, _SDA_GPIOx, _sdaPin),
+									GPIO(_IN_GPIOx,_INPin)
+
 {
 	
 	/*MPU6050寄存器初始化，需要对照MPU6050手册的寄存器描述配置，此处仅配置了部分重要的寄存器*/

@@ -812,7 +812,7 @@ I (.\Library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Library\misc.h)(0x4D783BB4)
 I (.\System\Delay\delay.h)(0x67D6C08B)
-F (.\System\IO_Core\IO_Core.cpp)(0x67D78665)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\io_core.o --omf_browse .\objects\io_core.crf --depend .\objects\io_core.d)
+F (.\System\IO_Core\IO_Core.cpp)(0x67D7A1DF)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\io_core.o --omf_browse .\objects\io_core.crf --depend .\objects\io_core.d)
 I (System\IO_Core\IO_Core.h)(0x67D78363)
 I (.\Start\stm32f10x.h)(0x4D783CB4)
 I (.\Start\core_cm3.h)(0x4D523B58)
@@ -852,7 +852,7 @@ I (.\Hardware\LED\LED.h)(0x67CE8127)
 I (.\Hardware\OLED\OLED.h)(0x67D148DD)
 I (.\Hardware\OLED\OLED_Font.h)(0x67CE8127)
 I (.\Hardware\control\control.h)(0x67D5A593)
-I (.\Hardware\MPU6050\MPU6050.h)(0x67D6CCA3)
+I (.\Hardware\MPU6050\MPU6050.h)(0x67D7B477)
 F (.\System\IO_Core\IO_Core.h)(0x67D78363)()
 F (.\Hardware\Key\Key.cpp)(0x67CE8127)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
 I (.\Start\stm32f10x.h)(0x4D783CB4)
@@ -952,7 +952,7 @@ I (.\Hardware\OLED\OLED.h)(0x67D148DD)
 I (.\Hardware\control\control.h)(0x67D5A593)
 I (.\System\IO_Core\IO_Core.h)(0x67D78363)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (.\Hardware\MPU6050\MPU6050.h)(0x67D6CCA3)
+I (.\Hardware\MPU6050\MPU6050.h)(0x67D7B477)
 I (Hardware\OLED\OLED_Font.h)(0x67CE8127)
 F (.\Hardware\control\control.cpp)(0x67D5A593)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
 I (Hardware\control\control.h)(0x67D5A593)
@@ -988,7 +988,7 @@ I (.\Library\misc.h)(0x4D783BB4)
 I (.\System\Delay\delay.h)(0x67D6C08B)
 I (.\System\IO_Core\IO_Core.h)(0x67D78363)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-F (.\Hardware\MPU6050\MPU6050.cpp)(0x67D6CF98)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\mpu6050.o --omf_browse .\objects\mpu6050.crf --depend .\objects\mpu6050.d)
+F (.\Hardware\MPU6050\MPU6050.cpp)(0x67D7B484)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\mpu6050.o --omf_browse .\objects\mpu6050.crf --depend .\objects\mpu6050.d)
 I (.\Start\stm32f10x.h)(0x4D783CB4)
 I (.\Start\core_cm3.h)(0x4D523B58)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -1019,7 +1019,7 @@ I (.\Library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Library\misc.h)(0x4D783BB4)
 I (Hardware\MPU6050\MyI2C.h)(0x63984C46)
 I (Hardware\MPU6050\MPU6050_Reg.h)(0x6398543A)
-I (Hardware\MPU6050\MPU6050.h)(0x67D6CCA3)
+I (Hardware\MPU6050\MPU6050.h)(0x67D7B477)
 I (.\System\sys\sys.h)(0x67D146B1)
 I (.\System\Delay\delay.h)(0x67D6C08B)
 I (.\System\IO_Core\IO_Core.h)(0x67D78363)
@@ -1056,7 +1056,7 @@ I (.\Library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Library\misc.h)(0x4D783BB4)
 F (.\User\stm32f10x_it.h)(0x4D99A59E)()
-F (.\User\mian.cpp)(0x67D78F7F)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\mian.o --omf_browse .\objects\mian.crf --depend .\objects\mian.d)
+F (.\User\mian.cpp)(0x67D7B462)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\mian.o --omf_browse .\objects\mian.crf --depend .\objects\mian.d)
 I (.\Start\stm32f10x.h)(0x4D783CB4)
 I (.\Start\core_cm3.h)(0x4D523B58)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -1096,7 +1096,7 @@ I (.\Hardware\OLED\OLED_Font.h)(0x67CE8127)
 I (.\System\IO_Core\IO_Core.h)(0x67D78363)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (.\Hardware\control\control.h)(0x67D5A593)
-I (.\Hardware\MPU6050\MPU6050.h)(0x67D6CCA3)
+I (.\Hardware\MPU6050\MPU6050.h)(0x67D7B477)
 F (.\User\pivot.cpp)(0x67D02818)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\pivot.o --omf_browse .\objects\pivot.crf --depend .\objects\pivot.d)
 I (User\pivot.h)(0x67D6CF98)
 I (.\System\sys\sys.h)(0x67D146B1)
@@ -1137,5 +1137,5 @@ I (.\Hardware\OLED\OLED_Font.h)(0x67CE8127)
 I (.\System\IO_Core\IO_Core.h)(0x67D78363)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (.\Hardware\control\control.h)(0x67D5A593)
-I (.\Hardware\MPU6050\MPU6050.h)(0x67D6CCA3)
+I (.\Hardware\MPU6050\MPU6050.h)(0x67D7B477)
 F (.\User\pivot.h)(0x67D6CF98)()

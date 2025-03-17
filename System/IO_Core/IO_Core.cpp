@@ -164,8 +164,8 @@ void PWM::setOc4(u16 value)
 encoder::encoder(GPIO_TypeDef* _EN1, u16 _EN1Pin,
                 GPIO_TypeDef* _EN2, u16 _EN2Pin,
                 u16 arr, u16 psc)
-    : EN1(_EN1, _EN1Pin, GPIO_Mode_IPU),  // 内部上拉
-      EN2(_EN2, _EN2Pin, GPIO_Mode_IPU) 
+    : EN1(_EN1, _EN1Pin, GPIO_Mode_IN_FLOATING),  // 内部上拉
+      EN2(_EN2, _EN2Pin, GPIO_Mode_IN_FLOATING) 
 {
     TIM_TypeDef* EN1_tim = GetTimerFromGPIO(_EN1, _EN1Pin);
     TIM_TypeDef* EN2_tim = GetTimerFromGPIO(_EN2, _EN2Pin);
@@ -204,14 +204,14 @@ encoder::encoder(GPIO_TypeDef* _EN1, u16 _EN1Pin,
     TIM_EncoderInterfaceConfig(
         timx,
         TIM_EncoderMode_TI12,
-        TIM_ICPolarity_BothEdge,   // CH1 双边沿
-        TIM_ICPolarity_BothEdge    // CH2 双边沿
+        TIM_ICPolarity_Rising,   // CH1 双边沿
+        TIM_ICPolarity_Rising    // CH2 双边沿
     );
 
     // 输入捕获滤波器配置（适度滤波）
     TIM_ICInitTypeDef TIM_ICInitStructure;
     TIM_ICStructInit(&TIM_ICInitStructure);
-    TIM_ICInitStructure.TIM_ICFilter = 0xF; // 调整滤波强度
+    TIM_ICInitStructure.TIM_ICFilter = 10; // 调整滤波强度
 
     // 配置通道1
     TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;
@@ -221,14 +221,19 @@ encoder::encoder(GPIO_TypeDef* _EN1, u16 _EN1Pin,
     TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;
     TIM_ICInit(timx, &TIM_ICInitStructure);
 		
-    // 配置通道3
-    TIM_ICInitStructure.TIM_Channel = TIM_Channel_3;
-    TIM_ICInit(timx, &TIM_ICInitStructure);
+//    // 配置通道3
+//    TIM_ICInitStructure.TIM_Channel = TIM_Channel_3;
+//    TIM_ICInit(timx, &TIM_ICInitStructure);
 
-    // 配置通道4
-    TIM_ICInitStructure.TIM_Channel = TIM_Channel_4;
-    TIM_ICInit(timx, &TIM_ICInitStructure);
-    // 启动定时器
+//    // 配置通道4
+//    TIM_ICInitStructure.TIM_Channel = TIM_Channel_4;
+//    TIM_ICInit(timx, &TIM_ICInitStructure);
+		
+		
+		TIM_ITConfig(timx,TIM_IT_Update,ENABLE);//配置溢出更新中断标志位
+		
+		TIM_SetCounter(timx,0);//清零定时器计数值
+			// 启动定时器
     TIM_Cmd(timx, ENABLE);
 }
 
@@ -242,4 +247,28 @@ int16_t encoder::Right(void) {
 void encoder::Right(int16_t &Temp) {
 		Temp += TIM_GetCounter(timx);
 		TIM_SetCounter(timx, 0);
+}
+
+void TIM2_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM2,TIM_IT_Update)!=0)
+	{
+		TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
+	}
+}
+	
+void TIM3_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM3,TIM_IT_Update)!=0)
+	{
+		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
+	}
+}
+
+void TIM4_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM4,TIM_IT_Update)!=0)
+	{
+		TIM_ClearITPendingBit(TIM4,TIM_IT_Update);
+	}
 }
