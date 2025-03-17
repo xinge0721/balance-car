@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay;.\System\sys;.\Hardware\PWM;.\Hardware\control;.\System\IO_Core;.\Hardware\MPU6050</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Hardware\Key;.\Hardware\LED;.\Hardware\OLED;.\System\Delay;.\System\sys;.\Hardware\PWM;.\Hardware\control;.\System\IO_Core;.\Hardware\MPU6050;.\System\usart;.\Hardware\MPU6050\eMPL</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -655,16 +655,6 @@
           <GroupName>System</GroupName>
           <Files>
             <File>
-              <FileName>Delay.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\System\Delay\Delay.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Delay.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\Delay\Delay.h</FilePath>
-            </File>
-            <File>
               <FileName>sys.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\sys\sys.h</FilePath>
@@ -683,6 +673,16 @@
               <FileName>IO_Core.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\IO_Core\IO_Core.h</FilePath>
+            </File>
+            <File>
+              <FileName>delay.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\System\Delay\delay.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\Delay\delay.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -710,9 +710,9 @@
               <FilePath>.\Hardware\control\control.cpp</FilePath>
             </File>
             <File>
-              <FileName>MPU6050.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Hardware\MPU6050\MPU6050.cpp</FilePath>
+              <FileName>OLED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\OLED\OLED.h</FilePath>
             </File>
           </Files>
         </Group>

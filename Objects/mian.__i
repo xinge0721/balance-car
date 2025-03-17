@@ -1,0 +1,4 @@
+--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\Hardware\Key -I .\Hardware\LED -I .\Hardware\OLED -I .\System\Delay -I .\System\sys -I .\Hardware\PWM -I .\Hardware\control -I .\System\IO_Core -I .\Hardware\MPU6050 -I .\System\usart -I .\Hardware\MPU6050\eMPL
+-ID:\Users\j\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+-D__UVISION_VERSION="539" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
+-o .\objects\mian.o --omf_browse .\objects\mian.crf --depend .\objects\mian.d "User\mian.cpp"

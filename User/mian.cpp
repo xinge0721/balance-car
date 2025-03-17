@@ -15,10 +15,6 @@ control Contro
 encoder End_right(GPIOA, GPIO_Pin_6,
 									GPIOA, GPIO_Pin_7,
 									65535, 0);
-									
-MPU6050 MPU(GPIOB, GPIO_Pin_3,
-						GPIOB, GPIO_Pin_4
-						GPIOB, GPIO_Pin_B);//PB5
 
 
 int main()
