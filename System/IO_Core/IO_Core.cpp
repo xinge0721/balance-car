@@ -211,7 +211,7 @@ encoder::encoder(GPIO_TypeDef* _EN1, u16 _EN1Pin,
     // 输入捕获滤波器配置（适度滤波）
     TIM_ICInitTypeDef TIM_ICInitStructure;
     TIM_ICStructInit(&TIM_ICInitStructure);
-    TIM_ICInitStructure.TIM_ICFilter = 0x6; // 调整滤波强度
+    TIM_ICInitStructure.TIM_ICFilter = 0xF; // 调整滤波强度
 
     // 配置通道1
     TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;
@@ -220,7 +220,14 @@ encoder::encoder(GPIO_TypeDef* _EN1, u16 _EN1Pin,
     // 配置通道2
     TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;
     TIM_ICInit(timx, &TIM_ICInitStructure);
+		
+    // 配置通道3
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_3;
+    TIM_ICInit(timx, &TIM_ICInitStructure);
 
+    // 配置通道4
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_4;
+    TIM_ICInit(timx, &TIM_ICInitStructure);
     // 启动定时器
     TIM_Cmd(timx, ENABLE);
 }
@@ -232,4 +239,7 @@ int16_t encoder::Right(void) {
 		return Temp;
 }
 
-
+void encoder::Right(int16_t &Temp) {
+		Temp += TIM_GetCounter(timx);
+		TIM_SetCounter(timx, 0);
+}

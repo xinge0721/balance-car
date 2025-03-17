@@ -55,6 +55,8 @@ class encoder
 			GPIO_TypeDef* _EN2, u16 _EN2Pin,
 			u16 arr,u16 psc);
 	int16_t Right(void);
+	void Right(int16_t &Temp) ;
+
 
 };
 
